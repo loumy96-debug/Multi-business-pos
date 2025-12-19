@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../products/product_list_page.dart';
 class PosDashboardPage extends StatelessWidget {
   final String businessName;
 
@@ -22,13 +22,16 @@ class PosDashboardPage extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: Text(
-          'POS Dashboard\n(Products & Cart coming next)',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18),
+      body: Center(
+  child: ElevatedButton(
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const ProductListPage(),
         ),
-      ),
-    );
-  }
-}
+      );
+    },
+    child: const Text('View Products'),
+  ),
+),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../business/business_selection_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -30,7 +31,14 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) => const BusinessSelectionPage(),
+    ),
+  );
+},
                 child: const Text('Login'),
               ),
             ),

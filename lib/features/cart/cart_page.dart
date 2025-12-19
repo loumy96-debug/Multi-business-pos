@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'cart_item.dart';
-
+import '../checkout/receipt_page.dart';
 class CartPage extends StatelessWidget {
   final List<CartItem> cartItems;
 
@@ -57,16 +57,13 @@ class CartPage extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Next: Checkout
-                          },
-                          child: const Text('Checkout'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-    );
-  }
-}
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (_) => ReceiptPage(
+        cartItems: cartItems,
+        total: total,
+      ),
+    ),
+  );
+},

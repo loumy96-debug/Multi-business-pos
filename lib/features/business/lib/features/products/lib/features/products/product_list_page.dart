@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'product_model.dart';
-
+import '../cart/cart_page.dart';
+import '../cart/cart_item.dart';
 class ProductListPage extends StatelessWidget {
   const ProductListPage({super.key});
 
@@ -25,11 +26,14 @@ class ProductListPage extends StatelessWidget {
             subtitle: Text('TZS ${product.price}'),
             trailing: const Icon(Icons.add_shopping_cart),
             onTap: () {
-              // Next: Add to cart
-            },
-          );
-        },
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) => CartPage(
+        cartItems: [
+          CartItem(product: product),
+        ],
       ),
-    );
-  }
-}
+    ),
+  );
+},

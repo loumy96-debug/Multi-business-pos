@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../dashboard/pos_dashboard_page.dart';
 class BusinessSelectionPage extends StatelessWidget {
   const BusinessSelectionPage({super.key});
 
@@ -22,6 +22,15 @@ class BusinessSelectionPage extends StatelessWidget {
             title: Text(businesses[index]),
             trailing: const Icon(Icons.arrow_forward),
             onTap: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) => PosDashboardPage(
+        businessName: businesses[index],
+      ),
+    ),
+  );
+},
               // Next step later
             },
           );

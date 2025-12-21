@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'cart_item.dart';
 import '../checkout/receipt_page.dart';
+import '../../core/database/app_database.dart';
 class CartPage extends StatelessWidget {
   final List<CartItem> cartItems;
 
@@ -56,8 +57,10 @@ class CartPage extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {
-  Navigator.pushReplacement(
+                          onPressed: () async {
+  await AppDatabase.insertSale(total);
+
+  Navigator.push(
     context,
     MaterialPageRoute(
       builder: (_) => ReceiptPage(
